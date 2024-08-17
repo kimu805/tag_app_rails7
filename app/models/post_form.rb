@@ -21,7 +21,7 @@ class PostForm
     tag_name = params.delete(:tag_name)
     tag = Tag.where(tag_name: tag_name).first_or_initialize if tag_name.present?
     tag.save if tag_name.present?
-    post.save
+    post.update(params)
     PostTagRelation.create(post_id: post.id, tag_id: tag.id) if tag_name.present?
   end
 end
