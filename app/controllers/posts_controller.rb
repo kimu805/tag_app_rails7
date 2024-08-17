@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 
   private
   def post_form_params
-    params.require(:post_form).permit(:text, :image)
+    params.require(:post_form).permit(:text, :tag_name, :image)
   end
 
   def set_post
